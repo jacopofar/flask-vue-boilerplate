@@ -50,19 +50,19 @@ export default {
   components: {
     CurrentTime,
   },
-  mounted(){
-this.refreshTime()
+  mounted() {
+    this.refreshTime();
   },
   methods: {
     refreshTime() {
-axios.get('/api/current_time')
-    .then((response) => {
-        this.timeFromServer = response.data.current_time;
-  })
-  .catch(function (error) {
-  alert(error);
-  })
-    }
+      axios.get('/api/current_time')
+        .then((response) => {
+          this.timeFromServer = response.data.current_time;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
   },
 };
 </script>

@@ -12,7 +12,7 @@ export default {
     time: null,
   },
   methods: {
-    localTime(){
+    localTime() {
       return new Date(this.time).toLocaleString();
     },
   },
