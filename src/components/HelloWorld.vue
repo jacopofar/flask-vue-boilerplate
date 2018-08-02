@@ -1,7 +1,12 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-
+<div v-if="!loggedIn">
+ <button @click="loginPopUp">You are not logged in, click here</button>
+</div>
+<div v-else>
+You are logged in as {{name}}
+</div>
       <CurrentTime :time="timeFromServer">  </CurrentTime>
 <button @click="refreshTime">Click to refresh time from server</button>
         <p>
@@ -36,6 +41,7 @@
 <script>
 import CurrentTime from '@/components/CurrentTime.vue';
 import axios from 'axios';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'HelloWorld',
@@ -51,9 +57,25 @@ export default {
     CurrentTime,
   },
   mounted() {
+    this.ensureLogIn();
     this.refreshTime();
   },
+  computed: {
+    ...mapGetters(['name', 'loggedIn']),
+  },
   methods: {
+    ...mapActions(['ensureLogIn']),
+   /** Trigger a login popup and check that it had some effect*/
+   loginPopUp() {
+      window.open('/login');
+      // nicer way than periodical check ?
+      const checker = setInterval(() => {
+        this.ensureLogIn();
+        if (this.loggedIn) {
+          clearTimeout(checker);
+        }
+      }, 3000);
+    },
     refreshTime() {
       axios.get('/api/current_time')
         .then((response) => {
