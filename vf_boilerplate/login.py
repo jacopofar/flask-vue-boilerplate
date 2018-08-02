@@ -11,7 +11,7 @@ app.secret_key = os.environ.get("FLASK_SECRET_KEY", "supersekrit")
 app.config["GITHUB_OAUTH_CLIENT_ID"] = os.environ.get("GITHUB_OAUTH_CLIENT_ID")
 app.config["GITHUB_OAUTH_CLIENT_SECRET"] = os.environ.get("GITHUB_OAUTH_CLIENT_SECRET")  # NOQA - eventually will mode the config to another place
 github_bp = make_github_blueprint()
-app.register_blueprint(github_bp, url_prefix="/login")
+app.register_blueprint(github_bp, url_prefix="/")
 
 
 @app.route("/")
