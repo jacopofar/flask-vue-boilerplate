@@ -1,9 +1,10 @@
-Nothing to see here, go away
+Flask + Vue.js opinionated example and boilerplate.
 
-
-
+It includes linting, automated test, live/hot reload, optional pipenv support, Docker build, CI/CD and whatnot.
 
 ## How to build and deploy somewhere (without Docker)
+
+You need `Python` 3.5 or greater, `nodejs` 8.x or greater and `yarn`.
 
 Run `yarn install` to install the frontend packages, then `yarn build` to create the static output in the `dist` folder.
 Once done, the `node_modules` folder can be removed to save space.
@@ -15,7 +16,9 @@ In production, uWSGI is used to run the Flask backend in parallel processes and 
 
 ## How to build and use the Docker image
 
-TODO
+Simply run `docker build  -t 'boilerplate-flask-vue' .` to create a Debian-based image including everything.
+
+Then run it with `docker run -p 8080:8080 boilerplate-flask-vue`.
 
 ## How to run in dev mode
 
