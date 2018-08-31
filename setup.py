@@ -8,11 +8,13 @@ setup(
     name='vf_boilerplate',
     version=meta['__version__'],
 
-    description='',
-    long_description='',
+    description='Flask, uWSGI and Vue.js boilerplate and example app',
+    long_description='''Boilerplate to show a Flask + Vue.js modern-ish app.
+It includes linting, automated test, live/hot reload, optional pipenv support,
+Docker build, CI/CD and whatnot.''',
 
     packages=find_packages(),
-
+    python_requires='>=3.5',
     install_requires=[
         'pytest',
         'pytest-cov',
