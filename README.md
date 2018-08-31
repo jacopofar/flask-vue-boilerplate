@@ -3,11 +3,17 @@ Nothing to see here, go away
 
 
 
-## How to build and deploy somewhere
+## How to build and deploy somewhere (without Docker)
 
-TODO
+Run `yarn install` to install the frontend packages, then `yarn build` to create the static output in the `dist` folder.
+Once done, the `node_modules` folder can be removed to save space.
 
-## How to prepare Docker image
+Then run `pip install -r requirements.txt` to install the requirements and `uwsgi uwsgi.ini` to run the server.
+
+In production, uWSGI is used to run the Flask backend in parallel processes and serve the static build for the frontend.
+
+
+## How to build and use the Docker image
 
 TODO
 
@@ -28,6 +34,8 @@ Otherwise create the local virtualenv:
  and start the server in dev mode, it will listen on port 8080:
 
     uwsgi uwsgi.development.ini
+
+Or you can use `make run-dev` which will try to do the same with some hack.
 
 Run the frontend service (no matter how the backend was started):
 
