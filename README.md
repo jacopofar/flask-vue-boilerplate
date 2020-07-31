@@ -2,6 +2,8 @@ Flask + Vue.js opinionated example and boilerplate.
 
 It includes linting, automated test, live/hot reload, optional pipenv support, Docker build, CI/CD and whatnot.
 
+# NOTE: This is not updated since 2019
+
 ## How to build and deploy somewhere (without Docker)
 
 You need `Python` 3.5 or greater, `nodejs` 8.x or greater and `yarn`.
